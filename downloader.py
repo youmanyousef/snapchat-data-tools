@@ -84,8 +84,8 @@ for memory in memories:
     #edit the filename so it has no spaces or illegal chars
     filename = re.sub('[^0-9a-zA-Z]+', '-', filename)
     #show progress
-    percent = int((current/mem_length)*30)
-    print(f'\rProgress: |{(percent)*"█"}{(30*"-")}| {percent}% || {dir_destination}{filename}.{ext}', end="\r")
+    percent = int((current/mem_length)*100)
+    print(f'\rProgress: |{(int(percent*.3))*"█"}{((30-(int(percent*.3)))*"-")}| {percent}% || {dir_destination}{filename}.{ext}', end="\r")
     current += 1
     #finally, write the data from SC api to file
     with open(f'{dir_destination}{filename}.{ext}', 'wb') as f:
